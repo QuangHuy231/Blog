@@ -13,6 +13,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Fragment } from "react";
 
+import "./styles.scss";
+
 const Layout = () => {
   return (
     <Fragment>
@@ -46,10 +48,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path: "/register",
-  //   element: <Register />,
-  // },
+  {
+    path: "/register",
+    element: <Register />,
+  },
 ]);
 
 function App() {
