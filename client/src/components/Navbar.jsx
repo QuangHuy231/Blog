@@ -5,7 +5,7 @@ import Logo from "../img/logo.png";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="container">
+      <div className="navbar__container">
         <div className="logo">
           <img src={Logo} />
         </div>
