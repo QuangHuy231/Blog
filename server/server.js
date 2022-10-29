@@ -1,13 +1,15 @@
 import express from "express";
-// import configViewEngine from './configs/viewEngine';
+import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
+
 const app = express();
-const port = 3000;
 
-// configViewEngine(app);
-app.get("/", (req, res) => {
-  res.send("hello from api");
-});
+app.use(express.json());
+app.use("/api/posts", postRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(8800, () => {
+  console.log(`Example app listening on port 8800`);
 });
