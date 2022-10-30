@@ -20,7 +20,7 @@ export const getPosts = (req, res) => {
 //Join 2 tables
 export const getPost = (req, res) => {
   const q =
-    "SELECT `username`, `title` , `desc`, p.img, u.img AS userImg , `cat` FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = ?";
+    "SELECT `username`, `title` , `desc`, posts.img , users.img AS userImg , `cat` FROM users JOIN posts ON users.id=posts.uid WHERE posts.id = ?";
   const postId = req.params.id;
   db.query(q, [postId], (err, data) => {
     if (err) return res.json(err);
