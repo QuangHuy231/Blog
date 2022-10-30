@@ -49,7 +49,7 @@ export const login = (req, res) => {
       {
         id: data[0].id,
       },
-      "jwtkey"
+      "jwtkey" //serect_key
     );
     const { password, ...other } = data[0];
 
