@@ -71,7 +71,6 @@ const Create = () => {
           </span>
 
           <input
-            style={{ display: "none" }}
             type="file"
             id="file"
             onChange={(e) => setFile(e.target.files[0])}
