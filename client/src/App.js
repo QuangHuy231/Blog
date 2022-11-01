@@ -1,19 +1,15 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Outlet,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./views/Home";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import Single from "./views/Single";
-import Write from "./views/Write";
+import Create from "./views/Create";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Fragment } from "react";
 
 import "./styles.scss";
+import Update from "./views/Update";
 
 const Layout = () => {
   return (
@@ -40,7 +36,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/write",
-        element: <Write />,
+        element: <Create />,
+      },
+      {
+        path: "/update",
+        element: <Update />,
       },
     ],
   },
