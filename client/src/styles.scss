@@ -198,7 +198,7 @@ $lightGreen: #b9e7e7;
         img {
           width: 100%;
           height: 300px;
-          object-fit: cover;
+          object-fit: contain;
         }
         flex: 5;
         display: flex;
@@ -259,7 +259,7 @@ $lightGreen: #b9e7e7;
           img {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
           }
 
           h2 {

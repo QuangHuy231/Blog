@@ -25,8 +25,9 @@ const Create = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const imgUrl = await upload();
+
     try {
+      const imgUrl = await upload();
       await axios.post(`/posts/`, {
         title,
         desc: value,

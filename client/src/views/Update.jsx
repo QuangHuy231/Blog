@@ -21,15 +21,17 @@ const Update = () => {
       console.log(err);
     }
   };
+
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const imgUrl = await upload();
+
     //chờ upload ảnh rồi mới update thông tin
 
     try {
-      axios.put(`/posts/${state.id}`, {
+      const imgUrl = await upload();
+      await axios.put(`/posts/${state.id}`, {
         title,
         desc: value,
         cat,
