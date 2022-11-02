@@ -27,7 +27,7 @@ const Create = () => {
     e.preventDefault();
     const imgUrl = await upload();
     try {
-      await axios.post(`/posts/`, {
+      axios.post(`/posts/`, {
         title,
         desc: value,
         cat,

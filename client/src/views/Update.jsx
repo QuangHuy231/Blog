@@ -26,8 +26,9 @@ const Update = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     const imgUrl = await upload();
+    //chờ upload ảnh rồi mới update thông tin
     try {
-      await axios.put(`/posts/${state.id}`, {
+      axios.put(`/posts/${state.id}`, {
         title,
         desc: value,
         cat,
