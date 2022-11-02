@@ -103,10 +103,10 @@ const Update = () => {
           <div className="cat">
             <input
               type="radio"
-              checked={cat === "scinece"}
-              name="cat"
-              value="scinece"
-              id="scinece"
+              checked={cat === "science"}
+              name="science"
+              value="science"
+              id="science"
               onChange={(e) => setCat(e.target.value)}
             />
             <label htmlFor="scinece">Scinece</label>
@@ -126,7 +126,7 @@ const Update = () => {
             <input
               type="radio"
               checked={cat === "cinema"}
-              name="cat"
+              name="cinema"
               value="cinema"
               id="cinema"
               onChange={(e) => setCat(e.target.value)}
@@ -137,7 +137,7 @@ const Update = () => {
             <input
               type="radio"
               checked={cat === "design"}
-              name="cat"
+              name="design"
               value="design"
               id="design"
               onChange={(e) => setCat(e.target.value)}
@@ -148,7 +148,7 @@ const Update = () => {
             <input
               type="radio"
               checked={cat === "food"}
-              name="cat"
+              name="food"
               value="food"
               id="food"
               onChange={(e) => setCat(e.target.value)}
