@@ -35,7 +35,7 @@ const Navbar = () => {
             <h6>FOOD</h6>
           </Link>
 
-          <span>{currentUser ? currentUser.username : ""}</span>
+          <span>{currentUser?.username}</span>
           {currentUser ? (
             <span onClick={logout}>Logout</span>
           ) : (
