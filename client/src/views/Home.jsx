@@ -20,10 +20,10 @@ const Home = () => {
     fetch();
   }, [cat]);
 
-  const getText = (html) => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent;
-  };
+  // const getText = (html) => {
+  //   const doc = new DOMParser().parseFromString(html, "text/html");
+  //   return doc.body.textContent;
+  // };
   // const posts = [
   //   {
   //     id: 1,
@@ -63,7 +63,7 @@ const Home = () => {
               <Link className="link" to={`/posts/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
-              <p>{getText(post.desc)}</p>
+              <p>{post.desc}</p>
               <Link className="link" to={`/posts/${post.id}`}>
                 <button>Read More</button>
               </Link>

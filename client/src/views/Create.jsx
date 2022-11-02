@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
+
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ const Create = () => {
     e.preventDefault();
     const imgUrl = await upload();
     try {
-      axios.post(`/posts/`, {
+      await axios.post(`/posts/`, {
         title,
         desc: value,
         cat,
@@ -51,11 +51,11 @@ const Create = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <div className="editorContainer">
-          <ReactQuill
+          <input
             className="editor"
             theme="snow"
             value={value}
-            onChange={setValue}
+            onChange={(e) => setValue(e.target.value)}
           />
         </div>
       </div>
