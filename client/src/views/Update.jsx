@@ -8,34 +8,43 @@ const Update = () => {
   const state = useLocation().state;
   const [value, setValue] = useState(state.desc);
   const [title, setTitle] = useState(state.title);
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(state.img);
   const [cat, setCat] = useState(state.cat);
 
-  const upload = async () => {
+  const upload = async (e) => {
     try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("/upload", formData);
-      return res.data;
+      const base64 = await convertBase64(file);
+      return base64;
     } catch (err) {
       console.log(err);
     }
+  };
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (err) => {
+        reject(err);
+      };
+    });
   };
 
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
-
-    //chờ upload ảnh rồi mới update thông tin
-
     try {
       const imgUrl = await upload();
       await axios.put(`/posts/${state.id}`, {
         title,
         desc: value,
         cat,
-        img: file ? imgUrl : "",
+        img: imgUrl,
       });
       navigate("/");
     } catch (err) {
