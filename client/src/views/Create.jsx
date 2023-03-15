@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import { AuthContext } from "../context/authContext";
 
 const Create = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState("");
+  const navigate = useNavigate();
+
+  const { currentUser } = useContext(AuthContext);
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/login");
+    }
+  }, [currentUser]);
 
   const upload = async (e) => {
     try {
@@ -33,7 +42,6 @@ const Create = () => {
       };
     });
   };
-  const navigate = useNavigate();
 
   const handleClick = async (e) => {
     e.preventDefault();
